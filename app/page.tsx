@@ -2,8 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { TrendingUp, Shield, Users, BarChart3, ArrowRight, Phone, Mail, MapPin, Calculator, LineChart as LineIcon } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { TrendingUp, Shield, Users, ArrowRight, LineChart as LineIcon } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const chartData = [
@@ -19,42 +18,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#1B4D3E] selection:text-white">
       
-      {/* Navbar - Sharp & Minimal */}
-      <nav className="fixed w-full z-50 top-0 bg-[#FDFBF7]/90 backdrop-blur-sm border-b border-[#E5E5E5]">
-        <div className="container mx-auto px-8 h-24 flex items-center justify-between">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-4"
-          >
-            {/* Logo: Abstract Geometric (Non-Emoji) */}
-            <div className="w-8 h-8 border-[3px] border-[#1B4D3E] rotate-45 flex items-center justify-center">
-              <div className="w-2 h-2 bg-[#1B4D3E]"></div>
-            </div>
-            <div>
-              <span className="text-2xl font-serif font-bold tracking-tight text-[#1B4D3E]">VAULT CAPITAL</span>
-            </div>
-          </motion.div>
-
-          <div className="hidden md:flex items-center gap-12 text-xs font-bold tracking-[0.2em] text-[#4A4A4A] uppercase">
-            {['Expertise', 'Performance', 'Philosophy', 'Contact'].map((item) => (
-              <Link key={item} href={`#${item.toLowerCase()}`} className="hover:text-[#1B4D3E] transition-colors relative group py-2">
-                {item}
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#1B4D3E] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
-              </Link>
-            ))}
-          </div>
-
-          <motion.button 
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="hidden md:flex border border-[#1B4D3E] text-[#1B4D3E] px-8 py-3 text-xs font-bold tracking-widest uppercase hover:bg-[#1B4D3E] hover:text-white transition duration-300"
-          >
-            Client Login
-          </motion.button>
-        </div>
-      </nav>
-
       {/* Hero Section - Sharp Edges, Serif Fonts */}
       <section className="pt-40 pb-32 px-8 border-b border-[#E5E5E5]">
         <div className="container mx-auto grid md:grid-cols-12 gap-16 items-start">
