@@ -112,7 +112,7 @@ export default function Home() {
                 <YAxis stroke="#64748b" style={{ fontSize: '12px' }} />
                 <Tooltip 
                   contentStyle={{ backgroundColor: '#fff', border: '1px solid #e2e8f0', borderRadius: '8px' }}
-                  formatter={(value: number) => [`$${value.toLocaleString()}`, 'Value']}
+                  formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Value']}
                 />
                 <Area type="monotone" dataKey="value" stroke="#064E3B" strokeWidth={3} fillOpacity={1} fill="url(#colorValue)" />
               </AreaChart>
