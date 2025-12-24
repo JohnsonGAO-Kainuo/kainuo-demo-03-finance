@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import SocialWidget from "@/components/SocialWidget";
 import "./globals.css";
 
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-serif" });
@@ -21,6 +22,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${playfair.variable} antialiased font-sans`}>
         <Navbar />
         {children}
+        <SocialWidget />
       </body>
     </html>
   );
