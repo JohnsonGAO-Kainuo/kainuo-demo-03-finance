@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { TrendingUp, Shield, Users, BarChart3, ArrowRight, Phone, Mail, MapPin, Calculator } from "lucide-react";
+import { TrendingUp, Shield, Users, BarChart3, ArrowRight, Phone, Mail, MapPin, Calculator, LineChart as LineIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const chartData = [
   { year: '2019', value: 100000 },
@@ -17,30 +17,30 @@ const chartData = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-emerald-100">
+    <div className="min-h-screen bg-[#FDFBF7] text-[#1A1A1A] font-sans selection:bg-[#1B4D3E] selection:text-white">
       
-      {/* Navbar */}
-      <nav className="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-xl border-b border-slate-100">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
+      {/* Navbar - Sharp & Minimal */}
+      <nav className="fixed w-full z-50 top-0 bg-[#FDFBF7]/90 backdrop-blur-sm border-b border-[#E5E5E5]">
+        <div className="container mx-auto px-8 h-24 flex items-center justify-between">
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="flex items-center gap-3"
+            className="flex items-center gap-4"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-emerald-800 to-emerald-600 rounded-lg flex items-center justify-center shadow-lg">
-              <TrendingUp className="w-6 h-6 text-white" />
+            {/* Logo: Abstract Geometric (Non-Emoji) */}
+            <div className="w-8 h-8 border-[3px] border-[#1B4D3E] rotate-45 flex items-center justify-center">
+              <div className="w-2 h-2 bg-[#1B4D3E]"></div>
             </div>
             <div>
-              <span className="text-2xl font-bold tracking-tight text-emerald-900">Vault Capital</span>
-              <span className="block text-[10px] uppercase tracking-widest text-emerald-700 font-semibold">Wealth Management</span>
+              <span className="text-2xl font-serif font-bold tracking-tight text-[#1B4D3E]">VAULT CAPITAL</span>
             </div>
           </motion.div>
 
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700">
-            {['Services', 'Performance', 'About', 'Contact'].map((item) => (
-              <Link key={item} href={`#${item.toLowerCase()}`} className="hover:text-emerald-800 transition-colors relative group">
+          <div className="hidden md:flex items-center gap-12 text-xs font-bold tracking-[0.2em] text-[#4A4A4A] uppercase">
+            {['Expertise', 'Performance', 'Philosophy', 'Contact'].map((item) => (
+              <Link key={item} href={`#${item.toLowerCase()}`} className="hover:text-[#1B4D3E] transition-colors relative group py-2">
                 {item}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-emerald-700 transition-all group-hover:w-full"></span>
+                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-[#1B4D3E] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
               </Link>
             ))}
           </div>
@@ -48,179 +48,184 @@ export default function Home() {
           <motion.button 
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="hidden md:flex bg-emerald-800 hover:bg-emerald-700 text-white px-6 py-2.5 rounded-lg text-sm font-semibold transition shadow-md hover:shadow-lg"
+            className="hidden md:flex border border-[#1B4D3E] text-[#1B4D3E] px-8 py-3 text-xs font-bold tracking-widest uppercase hover:bg-[#1B4D3E] hover:text-white transition duration-300"
           >
-            Schedule Consultation
+            Client Login
           </motion.button>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-emerald-50/30 to-white">
-        <div className="container mx-auto grid md:grid-cols-2 gap-16 items-center">
+      {/* Hero Section - Sharp Edges, Serif Fonts */}
+      <section className="pt-40 pb-32 px-8 border-b border-[#E5E5E5]">
+        <div className="container mx-auto grid md:grid-cols-12 gap-16 items-start">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-6">
-              <TrendingUp className="w-3 h-3" /> Trusted by 5,000+ Investors
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6 leading-tight">
-              Grow your wealth with <span className="text-emerald-800">confidence.</span>
-            </h1>
-            <p className="text-xl text-slate-600 mb-8 leading-relaxed">
-              Data-driven investment strategies tailored to your financial goals. Average annual return of 12.4% over the past 5 years.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-emerald-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-emerald-700 transition flex items-center justify-center gap-2 shadow-lg hover:shadow-xl">
-                Get Started <ArrowRight className="w-4 h-4" />
-              </button>
-              <button className="border-2 border-slate-200 text-slate-700 px-8 py-4 rounded-lg font-semibold hover:bg-slate-50 transition flex items-center justify-center gap-2">
-                <Calculator className="w-4 h-4" /> Investment Calculator
-              </button>
-            </div>
-          </motion.div>
-
-          {/* Chart Preview */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="bg-white rounded-2xl shadow-2xl p-8 border border-slate-100"
+            className="md:col-span-7"
           >
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Portfolio Growth</h3>
-                <p className="text-3xl font-bold text-emerald-800 mt-1">$310,000</p>
-                <p className="text-sm text-emerald-600 font-medium">+26.5% This Year</p>
+            <span className="block text-[#1B4D3E] font-bold tracking-[0.2em] uppercase text-xs mb-8">
+              Wealth Management Since 1999
+            </span>
+            <h1 className="text-6xl md:text-8xl font-serif font-medium text-[#1A1A1A] mb-10 leading-[1.1]">
+              Preserving legacy through <span className="italic text-[#1B4D3E]">discipline.</span>
+            </h1>
+            <p className="text-xl text-[#666] mb-12 max-w-xl font-light leading-relaxed">
+              We deploy institutional-grade investment strategies to protect and grow capital for high-net-worth families across generations.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6">
+              <button className="bg-[#1B4D3E] text-white px-10 py-5 text-sm font-bold tracking-widest uppercase hover:bg-[#143d30] transition duration-300 flex items-center gap-3 group">
+                Review Your Portfolio <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Data Visualization - Minimalist Style */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="md:col-span-5 relative mt-12 md:mt-0"
+          >
+            <div className="border border-[#E5E5E5] bg-white p-8 md:p-12 relative z-10">
+              <div className="flex justify-between items-end mb-8 border-b border-[#F0F0F0] pb-6">
+                <div>
+                  <h3 className="text-xs font-bold text-[#999] uppercase tracking-widest mb-2">Fund Performance</h3>
+                  <p className="text-4xl font-serif text-[#1B4D3E]">$310,000</p>
+                </div>
+                <div className="text-right">
+                   <p className="text-sm font-bold text-[#1B4D3E]">+12.4%</p>
+                   <p className="text-[10px] text-[#999] uppercase">Annualized Return</p>
+                </div>
               </div>
-              <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center">
-                <BarChart3 className="w-6 h-6 text-emerald-800" />
+              
+              <div className="h-[250px] w-full">
+                <ResponsiveContainer width="100%" height="100%">
+                  <AreaChart data={chartData}>
+                    <defs>
+                      <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#1B4D3E" stopOpacity={0.1}/>
+                        <stop offset="95%" stopColor="#1B4D3E" stopOpacity={0}/>
+                      </linearGradient>
+                    </defs>
+                    <CartesianGrid strokeDasharray="0" stroke="#F5F5F5" vertical={false} />
+                    <XAxis dataKey="year" stroke="#CCC" tickLine={false} axisLine={false} style={{ fontSize: '10px', fontFamily: 'var(--font-sans)' }} />
+                    <YAxis stroke="#CCC" tickLine={false} axisLine={false} style={{ fontSize: '10px', fontFamily: 'var(--font-sans)' }} />
+                    <Tooltip 
+                      contentStyle={{ backgroundColor: '#1B4D3E', border: 'none', borderRadius: '0px', padding: '12px' }}
+                      itemStyle={{ color: '#fff', fontSize: '12px', fontWeight: 'bold' }}
+                      labelStyle={{ display: 'none' }}
+                      formatter={(value) => [`$${Number(value).toLocaleString()}`, '']}
+                    />
+                    <Area type="monotone" dataKey="value" stroke="#1B4D3E" strokeWidth={2} fill="url(#colorValue)" />
+                  </AreaChart>
+                </ResponsiveContainer>
               </div>
             </div>
-            <ResponsiveContainer width="100%" height={200}>
-              <AreaChart data={chartData}>
-                <defs>
-                  <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#064E3B" stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor="#064E3B" stopOpacity={0}/>
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis dataKey="year" stroke="#64748b" style={{ fontSize: '12px' }} />
-                <YAxis stroke="#64748b" style={{ fontSize: '12px' }} />
-                <Tooltip 
-                  contentStyle={{ backgroundColor: '#fff', border: '1px solid #e2e8f0', borderRadius: '8px' }}
-                  formatter={(value) => [`$${Number(value).toLocaleString()}`, 'Value']}
-                />
-                <Area type="monotone" dataKey="value" stroke="#064E3B" strokeWidth={3} fillOpacity={1} fill="url(#colorValue)" />
-              </AreaChart>
-            </ResponsiveContainer>
+            {/* Decor element */}
+            <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#1B4D3E] -z-0"></div>
           </motion.div>
         </div>
       </section>
 
-      {/* Stats Bar */}
-      <section className="py-12 bg-emerald-900 text-white">
-        <div className="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { label: "Assets Under Management", value: "$2.5B" },
-            { label: "Average Annual Return", value: "12.4%" },
-            { label: "Active Clients", value: "5,000+" },
-            { label: "Years of Experience", value: "25+" }
-          ].map((stat, i) => (
-            <div key={i} className="border-r border-emerald-700 last:border-0">
-              <div className="text-3xl md:text-4xl font-bold mb-1">{stat.value}</div>
-              <div className="text-sm text-emerald-200 font-medium">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Services */}
-      <section id="services" className="py-24 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16 max-w-2xl mx-auto">
-            <span className="text-emerald-800 font-bold uppercase tracking-widest text-sm mb-4 block">Our Services</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Tailored wealth solutions</h2>
-            <p className="text-slate-600 text-lg">From portfolio management to retirement planning, we provide comprehensive financial services.</p>
+      {/* Services Section - No Cards, Grid Layout */}
+      <section id="expertise" className="py-32 px-8 bg-white">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-24 border-b border-[#1A1A1A] pb-8">
+            <h2 className="text-4xl md:text-5xl font-serif text-[#1A1A1A]">Core Expertise</h2>
+            <Link href="#" className="hidden md:flex items-center gap-2 text-xs font-bold tracking-widest uppercase hover:text-[#1B4D3E] transition">
+              View Full Capabilities <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-x-12 gap-y-24">
             {[
-              { icon: TrendingUp, title: "Portfolio Management", desc: "Diversified investment strategies optimized for risk-adjusted returns." },
-              { icon: Shield, title: "Wealth Preservation", desc: "Tax-efficient structures and estate planning to protect your legacy." },
-              { icon: Users, title: "Retirement Planning", desc: "Secure your future with data-driven retirement income strategies." }
+              { icon: LineIcon, title: "Asset Allocation", desc: "Rigorous quantitative models to optimize risk-adjusted returns across global markets." },
+              { icon: Shield, title: "Estate Planning", desc: "Structuring intergenerational wealth transfer to minimize tax liability and ensure continuity." },
+              { icon: Users, title: "Philanthropy", desc: "Strategic giving frameworks that align capital with your family's values and impact goals." }
             ].map((service, i) => (
               <motion.div 
                 key={i}
-                whileHover={{ y: -5 }}
-                className="p-8 bg-slate-50 hover:bg-white hover:shadow-xl transition-all duration-300 rounded-xl border border-slate-100 group"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group cursor-pointer"
               >
-                <div className="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center text-emerald-800 mb-6 group-hover:bg-emerald-800 group-hover:text-white transition-colors">
-                  <service.icon className="w-7 h-7" />
+                <div className="mb-6 text-[#1B4D3E] group-hover:text-[#2C7A62] transition-colors">
+                  <service.icon strokeWidth={1.5} className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-4">{service.title}</h3>
-                <p className="text-slate-600 leading-relaxed mb-6">{service.desc}</p>
-                <Link href="#" className="text-sm font-bold uppercase tracking-wider text-emerald-800 flex items-center gap-2 group-hover:gap-4 transition-all">
-                  Learn More <ArrowRight className="w-4 h-4" />
-                </Link>
+                <h3 className="text-2xl font-serif mb-4 group-hover:text-[#1B4D3E] transition-colors">{service.title}</h3>
+                <p className="text-[#666] leading-relaxed font-light mb-8">{service.desc}</p>
+                <div className="h-[1px] w-full bg-[#E5E5E5] group-hover:bg-[#1B4D3E] transition-colors duration-500"></div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-emerald-900 to-emerald-800 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+      {/* Performance Numbers - Sharp Grid */}
+      <section className="py-0 border-y border-[#E5E5E5]">
+        <div className="container mx-auto grid md:grid-cols-4">
+          {[
+            { label: "Assets Managed", value: "$2.5B" },
+            { label: "Client Retention", value: "99.4%" },
+            { label: "Avg Tenure", value: "14 Yrs" },
+            { label: "Global Reach", value: "12 Mkts" }
+          ].map((stat, i) => (
+            <div key={i} className="py-16 px-8 border-b md:border-b-0 md:border-r border-[#E5E5E5] last:border-0 text-center hover:bg-[#FAFAFA] transition-colors">
+              <div className="text-4xl md:text-5xl font-serif text-[#1B4D3E] mb-3">{stat.value}</div>
+              <div className="text-[10px] font-bold tracking-[0.2em] text-[#999] uppercase">{stat.label}</div>
+            </div>
+          ))}
         </div>
-        <div className="container mx-auto px-6 relative z-10 text-center max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to secure your financial future?</h2>
-          <p className="text-xl text-emerald-100 mb-10">Schedule a complimentary consultation with our wealth advisors.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-emerald-900 px-8 py-4 rounded-lg font-bold hover:bg-emerald-50 transition shadow-xl">
-              Book Consultation
+      </section>
+
+      {/* CTA Section - Minimalist */}
+      <section className="py-32 px-8 bg-[#1B4D3E] text-white">
+        <div className="container mx-auto text-center max-w-4xl">
+          <h2 className="text-4xl md:text-6xl font-serif mb-12">The future of your wealth demands precision.</h2>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button className="bg-white text-[#1B4D3E] px-12 py-5 text-sm font-bold tracking-widest uppercase hover:bg-[#F0F0F0] transition duration-300">
+              Schedule Consultation
             </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white/10 transition">
-              Download Brochure
+            <button className="border border-white/30 text-white px-12 py-5 text-sm font-bold tracking-widest uppercase hover:bg-white/10 transition duration-300">
+              Download 2024 Outlook
             </button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-slate-400 py-16">
-        <div className="container mx-auto px-6 grid md:grid-cols-4 gap-12 text-sm">
-          <div>
-            <div className="text-2xl font-bold text-white mb-6">Vault Capital</div>
-            <p className="mb-6 leading-relaxed">Building wealth through intelligent investment strategies since 1999.</p>
+      <footer className="bg-[#151515] text-[#888] py-20 px-8 text-xs leading-loose">
+        <div className="container mx-auto grid md:grid-cols-4 gap-16 border-b border-[#333] pb-16 mb-16">
+          <div className="col-span-1">
+             <div className="text-white font-serif text-xl mb-6 tracking-wide">VAULT CAPITAL</div>
+             <p>Member of SIPC. FINRA Registered.</p>
           </div>
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-xs">Office</h4>
-            <p>Level 28, IFC Tower</p>
+            <h4 className="text-white font-bold uppercase tracking-widest mb-6">Hong Kong</h4>
             <p>1 Harbour View Street</p>
-            <p>Hong Kong</p>
-          </div>
-          <div>
-            <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-xs">Contact</h4>
-            <p>wealth@vaultcapital.hk</p>
+            <p>Central, Hong Kong</p>
             <p>+852 3456 7890</p>
           </div>
           <div>
-             <h4 className="text-white font-bold uppercase tracking-widest mb-6 text-xs">Legal</h4>
+            <h4 className="text-white font-bold uppercase tracking-widest mb-6">Zurich</h4>
+            <p>Bahnhofstrasse 42</p>
+            <p>8001 Zurich, Switzerland</p>
+            <p>+41 44 215 40 00</p>
+          </div>
+          <div>
+             <h4 className="text-white font-bold uppercase tracking-widest mb-6">Legal</h4>
              <ul className="space-y-2">
-               <li><Link href="#" className="hover:text-emerald-400 transition">Privacy Policy</Link></li>
-               <li><Link href="#" className="hover:text-emerald-400 transition">Terms of Service</Link></li>
-               <li><Link href="#" className="hover:text-emerald-400 transition">Risk Disclosure</Link></li>
+               <li><Link href="#" className="hover:text-white transition">Regulatory Disclosures</Link></li>
+               <li><Link href="#" className="hover:text-white transition">Privacy Statement</Link></li>
+               <li><Link href="#" className="hover:text-white transition">Terms of Use</Link></li>
              </ul>
           </div>
         </div>
-        <div className="container mx-auto px-6 pt-8 mt-8 border-t border-slate-800 text-center text-xs">
-          © 2024 KainuoTech Demo. All rights reserved. | Vault Capital is a fictional brand for demonstration purposes.
+        <div className="container mx-auto text-center">
+          &copy; 2024 KainuoTech Demo. Vault Capital is a registered trademark. Investment products are not FDIC insured.
         </div>
       </footer>
     </div>
