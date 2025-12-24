@@ -83,8 +83,8 @@ export default function ContactPage() {
                 8 Finance Street, Central<br/>
                 Hong Kong
               </p>
-              {/* Map Placeholder (Using a styled div to simulate a high-end map) */}
-              <div className="w-full h-64 bg-[#E5E5E5] relative grayscale hover:grayscale-0 transition duration-700 overflow-hidden border border-[#1B4D3E]">
+              {/* Map Placeholder */}
+              <div className="w-full h-64 bg-[#E5E5E5] relative overflow-hidden border border-[#1B4D3E]">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.3690623377747!2d114.15656337595676!3d22.284381942846096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34040063063f0367%3A0x6a025777dfb66e!2sTwo%20International%20Finance%20Centre!5e0!3m2!1sen!2shk!4v1703660000000!5m2!1sen!2shk" 
                   width="100%" 
